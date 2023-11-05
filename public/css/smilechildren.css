@@ -1,0 +1,119 @@
+/* 共通スタイル */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダーのスタイル */
+header {
+    background-color: #FFE4E1;
+    color: gray;
+    padding: 20px 0;
+    margin-bottom: 0;
+    text-align: left; /* テキストを左寄せに配置 */
+    border-top-left-radius: 10px; /* ヘッダーの左上角を角丸に */
+    border-top-right-radius: 10px; /* ヘッダーの右上角を角丸に */
+}
+
+/* ナビゲーションのスタイル */
+nav ul {
+    list-style-type: none; /* リストマーカーを非表示に */
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* リストアイテムを横並びに配置 */
+    margin-right: 15px;
+}
+
+/* リンクのスタイル */
+nav ul li a {
+    text-decoration: none; /* リンクの下線を非表示に */
+    color: #222222; /* リンクのカラーを設定 */
+    font-weight: bold; /* テキストの太さを設定 */
+}
+
+/* サイドバーのスタイル */
+.sidebar {
+    position: absolute;
+    left: -250px;
+    background: rgb(75, 48, 17);
+    width: 250px;
+    height: 100%;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+}
+
+/* トップページ全体の背景色 */
+body {
+    background-color: #f2f2f2; /* 好みの背景色に変更 */
+}
+
+/* トップページ全体の余白 */
+.container {
+    margin: 20px auto; /* ページ全体の中央寄せと余白設定 */
+    max-width: 1200px; /* コンテンツの最大幅を設定 */
+    padding: 20px; /* コンテンツと周囲の余白を設定 */
+    background-color: #fff; /* ページ背景色 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 影の設定 */
+}
+
+/* イメージコンテナのスタイル */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    position: relative;
+    border: 1px solid #ddd; /* 縁のスタイル */
+    border-radius: 10px; /* 角丸の設定 */
+    padding: 20px; /* 内側の余白 */
+    background-color: #fff; /* イメージコンテナの背景色 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+}
+
+/* ボタンコンテナのスタイル */
+.button-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+}
+
+.button-container a {
+    display: block;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.button-container a.btn-secondary {
+    background-color: #FF5733; /* ボタンの背景色を変更 */
+    color: #fff; /* ボタンのテキスト色を変更 */
+}
+
+.button-container a.btn-secondary:hover {
+    background-color: #FF7F50; /* ホバー時の背景色を変更（オプション） */
+}
+
+/* タイトルのスタイル */
+.app-title {
+    position: absolute;
+    top: 80px;
+    right: 350px;
+    font-size: 48px;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(to right, #ff00cc, #ff0066, #ff0033);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
