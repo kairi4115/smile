@@ -2,6 +2,7 @@
 
 @section('content')
 
+</style>
 <div class="container">
 <h1> 排泄記録</h1>
 <a href="{{url('bowel/index') }}">戻る</a>

@@ -17,8 +17,7 @@ use App\Http\Controllers\parentlogincontroller;
 use App\Http\Controllers\parentregistercontroller;
 use App\Http\Controllers\parenttopcontroller;
 use App\Http\Controllers\ParentattendController;
-
-
+use App\Http\Controllers\SleepController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +78,8 @@ Route::get('trans/edit/{id}', [TransportRecordController::class, 'edit'])->name(
 Route::post('trans/update/{id}', [TransportRecordController::class, 'update'])->name('trans.update');
 Route::get('trans/destroy/{id}', [TransportRecordController::class, 'destroy'])->name('trans.destroy');
 
+Route::get('sleep/create', [SleepController::class, 'create'])->name('sleep.create');
+
 
 Route::get('parents/login', [parentlogincontroller::class, 'index'])->name('parents.login');
 Route::get('parents/register', [parentregistercontroller::class, 'index'])->name('parents.register');
@@ -91,4 +92,5 @@ Route::get('absence/index', [AbsenceReportController::class, 'index'])->name('ab
 Route::get('absence/create', [AbsenceReportController::class, 'create'])->name('absence.create');
 Route::post('absence/store', [AbsenceReportController::class, 'store'])->name('absence.store');
 Route::get('absence/edit/{id}', [AbsenceReportController::class, 'edit'])->name('absence.edit');
+Route::post('absence/update/{id}', [AbsenceReportController::class, 'update'])->name('absence.update');
 Route::get('absence/destroy/{id}', [AbsenceReportController::class, 'destroy'])->name('absence.destroy');

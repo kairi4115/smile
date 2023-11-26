@@ -2,18 +2,123 @@
 
 @section('content')
 
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+    }
 
+    .container {
+        position: relative;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .image-container {
+        position: relative;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 10px;
+        
+    }
+
+    form {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    select,
+    input,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-check {
+        margin-bottom: 10px;
+    }
+
+    .quantity-option {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: lightblue;
+        margin-right: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .quantity-option:hover {
+        background-color: #CCCC99;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
 
 <!-- 新しい食事記録を入力するフォーム -->
 <div class="container">
-<link href="{{asset('css/smilechildren.css') }}" rel="stylesheet">
+    <div class="image-container">
+        <div class="image-box">
+            <img src="{{ asset('imges/food.png') }}" alt="Food Image"> 
+            <link href="{{asset('css/smilechildren.css') }}" rel="stylesheet">
+        </div>
+    </div>
+
     <a href="{{ url('/food/index') }}">戻る</a>
     <h3>新しい食事記録を追加</h3>
     
     @if ( session('message') )
         <div class="alert alert-success" role="alert">{{ session('message') }}</div>
     @endif
-
+    <div class="form-overlay">
     <form method="POST" action="{{ route('food.store') }}">
         @csrf <!-- CSRF保護 -->
         <div class="form-group">
@@ -76,10 +181,10 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">送信</button>
+        <button type="submit">送信</button>
     </form>
+    </div>
 </div>
-
 <script>
 // 選択された分量を保持する変数
 var selectedQuantity = 0;

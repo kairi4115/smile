@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="form-container">
     <div class="dashboard">
         <h2>食事記録</h2>
         <a href="{{ route('food.create') }}">食事記録へ</a>
@@ -76,3 +76,7 @@
 @endforeach
 
 @endsection
+
+
+
+

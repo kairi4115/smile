@@ -3,9 +3,9 @@
 @section('content')
 
     
-<div class="container">
-    <div class="dashboard bg-light p-4 rounded mb-4">
-        <h1 class="my-4">Child Dashboard</h1>
+<div class="form-container">
+    <div class="dashboard bg-light p-4 rounded mb-4"> 
+       <h1 class="my-4">Child Dashboard</h1> 
         <p>Welcome to the child management dashboard. Here you can view and manage child records.</p>
         <a href="{{ url('child/create') }}" class="btn btn-primary">児童登録へ</a>
     </div>
@@ -63,7 +63,7 @@
         <div class="modal-content">
             <div class="modal-header bg-danger text-white">
                 <h5 class="modal-title" id="deleteModalLabel-{{ $child->id }}">削除の確認</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -71,7 +71,7 @@
                 本当に削除しますか？
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
                 <form action="{{ route('child.destroy', $child->id) }}" method="POST">
                     @csrf
                     @method('DELETE')

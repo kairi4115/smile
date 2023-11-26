@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/smailechildren.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
     <script src="https://kit.fontawesome.com/2e4b86039b.js" crossorigin="anonymous"></script>
-   
+  
     <title>トップページ</title>
 </head>
 <body>
@@ -45,3 +48,4 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 </html>
+@endsection

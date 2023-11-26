@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="container">
     <div class="dashboard">
        <a href="{{ url('attend/create') }}">出勤登録へ</a>
@@ -19,18 +17,21 @@
                     <th scope="col">出勤時刻</th>
                     <th scope="col">退勤時刻</th>
                     <th scope="col">注意事項</th>
+                    <th scope="col">編集</th>
+                    <th scope="col">削除</th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach($Attends as $Attend)
                 <tr>
-                    <th scope="row">{{ $Attend->child_id}}</th>
-                    <th scope="row">{{ $Attend->date }}</th>
-                    <th scope="row">{{ $Attend->present }}</th>
-                    <th scope="row">{{ $Attend->arrival_time }}</th>
-                    <th scope="row">{{ $Attend->departure_time }}</th>
-                    <th scope="row">{{ $Attend->notes }}</th>
+                   <td>{{ $Attend->child_id}}</td>
+                   <td>{{ $Attend->date}}</td>
+                   <td>{{ $Attend->present}}</td>
+                   <td>{{ $Attend->arrival_time}}</td>
+                   <td>{{ $Attend->departure_time}}</td>
+                   <td>{{ $Attend->notes}}</td>
+                    
                     <td>
                         <a href="{{ route('attend.edit', ['id' => $Attend->id]) }}" class="btn btn-edit"><i class="far fa-edit"></i> 編集</a>
                     </td>
