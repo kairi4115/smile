@@ -1,0 +1,26 @@
+/* web.index */
+.text-center {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #FFE4E1;
+    padding: 20px 0;
+    margin-bottom: 0;
+    text-align: left;
+    border-top-left-radius: 10px; /* ヘッダーの右上を角丸に*/
+    border-top-right-radius: 10px;
+}
+
+/* ナビゲーション　*/
+
+nav ul {
+    list-style-type: none; /* リストマーカーを非表示 */
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* リストアイテムを横並び　*/
+    margin-right: 15px;
+}

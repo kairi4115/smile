@@ -31,6 +31,14 @@
         </label>
     </div>
 
+    <div class="form-group">
+      <lavel for="nap_end" class="form-control @error('nap_end') is-invalid @enderror" id="nap_end">
+      <input type="date" name="nap_start" id="nap_end" class="form-control" required>
+      @error('nap_end')
+      <p class="text-danger">{{ message }}</p>
+      @enderror
+      </lavel>
+    </div>
 
  </form>
 </div>
