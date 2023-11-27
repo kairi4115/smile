@@ -94,3 +94,7 @@ Route::post('absence/store', [AbsenceReportController::class, 'store'])->name('a
 Route::get('absence/edit/{id}', [AbsenceReportController::class, 'edit'])->name('absence.edit');
 Route::post('absence/update/{id}', [AbsenceReportController::class, 'update'])->name('absence.update');
 Route::get('absence/destroy/{id}', [AbsenceReportController::class, 'destroy'])->name('absence.destroy');
+
+
+Route::get('sleep/create', [SleepController::class, 'create'])->name('sleep.create');
+Route::post('sleep/store', [SleepController::class, 'store'])->name('sleep.store');

@@ -5,7 +5,7 @@
 <div class="container">
  
 @if(session('message'))
- <div class= "alert alert-success" role="alert">{{ settion('message') }}</div>
+ <div class= "alert alert-success" role="alert">{{ session('message') }}</div>
  @endif
 
  <form method="post" action="{{ route('sleep.store') }}">
@@ -13,9 +13,9 @@
     <div class="form-group">
         <label for="child_id">児童名</label>
         <select name="child_id" class="form-control  @error('child_id') is-invalid @enderror" id="child_id">
-            foreach($children as $child)
-              <option value="{{ $sleep->id }}">{{ $sleep->name }}</option>
-            endforeach
+            @foreach($children as $child)
+              <option value="{{ $child->id }}">{{ $child->name }}</option>
+            @endforeach
         </select>
        @error('child_id')
         <p class="text-danger">{{ $message }}</p>

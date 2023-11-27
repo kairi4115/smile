@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Child;
 use App\Models\sleep;
 
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +15,9 @@ class SleepController extends Controller
 {
     //
     public function create(){
-        return view('sleep.create');
+
+       $children = Child::all();
+        return view('sleep.create', compact('children'));
 }
 
 
@@ -42,8 +46,9 @@ class SleepController extends Controller
         'text'     => request('text'),
     ]);
 
-
+    return redirect()->back()->with('message', '午睡記録が登録されました');
   }
+
     }
    
 
