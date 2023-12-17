@@ -98,3 +98,4 @@ Route::get('absence/destroy/{id}', [AbsenceReportController::class, 'destroy'])-
 
 Route::get('sleep/create', [SleepController::class, 'create'])->name('sleep.create');
 Route::post('sleep/store', [SleepController::class, 'store'])->name('sleep.store');
+Route::get('sleep/edit/{id}',[SleepController::class, 'edit'])->name('sleep.edit');

@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/2e4b86039b.js" crossorigin="anonymous"></script>
   
     <title>トップページ</title>
+
 </head>
 <body>
     <div class="square-container">

@@ -18,9 +18,241 @@
 nav ul {
     list-style-type: none; /* リストマーカーを非表示 */
     padding: 0;
+    text-align: left;
 }
 
 nav ul li {
     display: inline; /* リストアイテムを横並び　*/
-    margin-right: 15px;
+    margin-right: 15px; /* 間隔をあける　*/
 }
+
+nav ul li a {
+    text-decoration: none;
+color: #222222; /* リンクカラーを設定　*/
+font-weight: bold;
+text-align: left; /* テキストを左寄せにする */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    position: relative;
+    border: 1px solid #ddd; /* 縁のスタイル */
+    border-radius: 10px; /* 角丸の設定 */
+    padding: 20px; /* 内側の余白 */
+    background-color: #fff; /* イメージコンテナの背景色 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+}
+
+/* ボタンコンテナのスタイル */
+.button-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+}
+
+.button-container a {
+    display: block;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.button-container a.btn-secondary {
+    background-color: #FF5733; /* ボタンの背景色を変更 */
+    color: #fff; /* ボタンのテキスト色を変更 */
+}
+
+.button-container a.btn-secondary:hover {
+    background-color: #FF7F50; /* ホバー時の背景色を変更（オプション） */
+}
+
+/* タイトルのスタイル */
+.app-title {
+    position: absolute;
+    top: 80px;
+    right: 350px;
+    font-size: 48px;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(to right, #ff00cc, #ff0066, #ff0033);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* top.index */
+
+ /* 全体の背景をピンクに設定 */
+ body {
+    background-color: #FFCCCC; /* ピンクの背景色 */
+    margin: 0;
+    padding: 0;
+}
+
+/* キャラクター項目のスタイル */
+.square-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 画面の高さいっぱいに表示 */
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    background-color: #FFCCCC; /* 白の背景色 */
+    text-align: center;
+    border-radius: 10px; /* 角丸 */
+    transition: transform 0.2s, box-shadow 0.2s; /* アニメーション効果の設定 */
+}
+
+.square:hover {
+    transform: scale(1.05); /* ホバー時に少し拡大 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* ホバー時に影を追加 */
+}
+
+.square a {
+    text-decoration: none;
+    color: #333; /* テキストの色 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* アイコンのスタイル */
+.square i {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* food.create*/
+
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5; /* 背景色を設定 */
+    }
+    
+    /* h3要素に対してスタイルを追加 */
+   h3 {
+    margin-top: 0; /* デフォルトのマージンをリセット */
+    margin-bottom: 20px; /* 下部の余白を追加 */
+    font-weight: normal;
+   }
+
+ /* コンテナ内のフォームに対してスタイルを追加 */
+  .form-overlay form {
+    margin-top: 20px; /* フォームと上部の余白を追加 */
+   }
+
+    .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 50px auto; /* 中央寄せと上部の余白を追加 */
+        background-color: #fff; /* コンテナの背景色を設定 */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスに影を追加 */
+        border-radius: 10px;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px; /* 画像に角丸を追加 */
+    }
+
+    .form-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    select,
+    input,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-check {
+        margin-bottom: 10px;
+    }
+
+    .quantity-option {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: lightblue;
+        margin-right: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .quantity-option:hover {
+        background-color: #CCCC99;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }

@@ -9,6 +9,6 @@ class sleep extends Model
 {
     use HasFactory;
 
-    protected $table = 'slepp';
-    protected $fillable = ['child_id', 'nap_start', 'nap_end', 'notes'];
+    protected $table = 'sleeps';
+    protected $fillable = ['child_id', 'nap_start',  'start_time', 'end_time', 'notes'];
 }

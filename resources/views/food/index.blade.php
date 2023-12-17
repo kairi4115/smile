@@ -27,10 +27,14 @@
                 @foreach($records as $record)
                 <tr>
                     <td>{{ $record->record_date }}</td>
-                    <td>{{ $record->name }}</td>
-                    <td>{{ $record->meal_type }}</td>
+                    <td>{{ $record->child->name }}</td>
+                    <td>{{ $record->meal_type }} </td>
                     <td>{{ $record->meal_description }}</td>
-                    <td>{{ $record->meal_amount }}</td>
+                    <td>{{ $record->meal_amount }}
+                    @if(isset($messages[$record->id]))
+                    <div class="alert alert-info" role="alert">{{ $messages[$record->id] }}</div>
+                     @endif
+                    </td>
                     <td>
                         <a href="{{ route('food.edit', ['id' => $record->id]) }}" class="btn btn-edit"><i class="far fa-edit"></i> 編集</a>
                     </td>

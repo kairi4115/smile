@@ -9,12 +9,31 @@ use Illuminate\Http\Request;
 
 class FoodChildController extends Controller
 {
-    //
+  
     public function index()
     {
-      
+      $children= Child::all();
        $records = FoodCildRecord::all();
-        return view('food.index',compact('records'));
+      
+       // メッセージを格納するための空の配列を初期化
+       $messages = [];
+
+       // 食事量の計算を行い、増減の判断を行う
+      foreach($records as $record) { 
+
+      //2/4以下であれば夜の食事量を増やす
+      if($record->meal_amount <=  2/4) {
+        $message ='おやつ多め';
+      }else{ 
+      //2/4以上
+       $message = 'おやつ少なめ';
+    }
+     // メッセージを配列に追加
+     $messages[$record->id]= $message;
+      
+
+  }
+        return view('food.index',compact('records', 'children', 'messages', 'message'));
     }
 
    public function create()
