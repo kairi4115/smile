@@ -3,7 +3,8 @@
 @section('content')
 
 <h1>排泄記録一覧</h1>
-<a href="{{ url('bowel/create') }}">新しい記録を作成</a>
+<a href="{{ url('home') }}" class="btn btn-primary">トップ画面へ</a>
+<a href="{{ url('bowel/create') }}" class="btn btn-primary">新しい記録を作成</a>
 @if(session('message'))
 <div class="alert alert-success">
     {{ session('message') }} <!-- スペルミスを修正 -->
@@ -14,11 +15,13 @@
     <thead>
         <tr>
             <th>名前</th>
-            <th>Date</th>
-            <th>Time</th> <!-- 大文字に修正 -->
-            <th>Type</th>
+            <th>日付</th>
+            <th>時間</th> <!-- 大文字に修正 -->
             <th>便の形態</th>
-            <th>Notes</th>
+            <th>便の形態</th>
+            <th>注意事項</th>
+            <th>編集</th>
+            <th>削除</th>
         </tr>
     </thead>
 
@@ -32,13 +35,13 @@
          <td>{{ $bowel->stool_type }}</td> <!-- フィールド名を正確に指定 -->
          <td>{{ $bowel->notes }}</td> <!-- フィールド名を正確に指定 -->
        <td>
-         <a href="{{ route('bowel.edit', ['id' => $bowel->id]) }}"  class="btn btn-edit"><i class="far fa-edit"></i> 編集</a> 
+         <a href="{{ route('bowel.edit', ['id' => $bowel->id]) }}"  class="btn btn-info"><i class="far fa-edit"></i> 編集</a> 
        </td>
        <td>
          <form action="{{ route('bowel.destroy',['id' => $bowel->id]) }}" method="POST"> <!-- ルート名を指定 -->
             @csrf
             @method('DELETE')
-            <button type="button" class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $bowel->id }}"><i class="far fa-trash-alt"> 削除</i></button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $bowel->id }}"><i class="far fa-trash-alt"> 削除</i></button>
          </form>
        </td>
        </tr> 

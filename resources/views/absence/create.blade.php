@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="form-container">
+<div class="container">
     <a href="{{url('absence/index') }}">戻る</a>
     <h1>欠席連絡</h1>
     @if(session('message'))

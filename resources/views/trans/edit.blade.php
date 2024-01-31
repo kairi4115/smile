@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="form-container">
+<div class="trans-container">
     <a href="{{ url('trans/index') }}">戻る</a>
     <h1>送迎記録編集フォーム</h1>
     @if(session('message'))

@@ -1,4 +1,12 @@
 /* web.index */
+
+/* Reset */
+body, h1, h2, h3, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* General Styles */
 .text-center {
     margin: 0;
     padding: 0;
@@ -9,28 +17,28 @@
     padding: 20px 0;
     margin-bottom: 0;
     text-align: left;
-    border-top-left-radius: 10px; /* ヘッダーの右上を角丸に*/
+    border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-/* ナビゲーション　*/
+/* Navigation */
 
 nav ul {
-    list-style-type: none; /* リストマーカーを非表示 */
+    list-style-type: none;
     padding: 0;
     text-align: left;
 }
 
 nav ul li {
-    display: inline; /* リストアイテムを横並び　*/
-    margin-right: 15px; /* 間隔をあける　*/
+    display: inline;
+    margin-right: 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-color: #222222; /* リンクカラーを設定　*/
-font-weight: bold;
-text-align: left; /* テキストを左寄せにする */
+    color: #222222;
+    font-weight: bold;
+    text-align: left;
 }
 
 .image-container {
@@ -39,14 +47,14 @@ text-align: left; /* テキストを左寄せにする */
     align-items: flex-start;
     height: 100vh;
     position: relative;
-    border: 1px solid #ddd; /* 縁のスタイル */
-    border-radius: 10px; /* 角丸の設定 */
-    padding: 20px; /* 内側の余白 */
-    background-color: #fff; /* イメージコンテナの背景色 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ボタンコンテナのスタイル */
+/* Button Container Styles */
 .button-container {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
@@ -56,7 +64,7 @@ text-align: left; /* テキストを左寄せにする */
     top: 20px;
     right: 20px;
     width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .button-container a {
@@ -66,19 +74,18 @@ text-align: left; /* テキストを左寄せにする */
 
 .btn-primary {
     background-color: #3498db;
-    color: #fff;
 }
 
 .button-container a.btn-secondary {
-    background-color: #FF5733; /* ボタンの背景色を変更 */
-    color: #fff; /* ボタンのテキスト色を変更 */
+    background-color: #FF5733;
+    color: #fff;
 }
 
 .button-container a.btn-secondary:hover {
-    background-color: #FF7F50; /* ホバー時の背景色を変更（オプション） */
+    background-color: #FF7F50;
 }
 
-/* タイトルのスタイル */
+/* Title Styles */
 .app-title {
     position: absolute;
     top: 80px;
@@ -94,39 +101,38 @@ text-align: left; /* テキストを左寄せにする */
 
 /* top.index */
 
- /* 全体の背景をピンクに設定 */
- body {
-    background-color: #FFCCCC; /* ピンクの背景色 */
+body {
+    background-color: #FFCCCC;
     margin: 0;
     padding: 0;
 }
 
-/* キャラクター項目のスタイル */
+/* Character Styles */
 .square-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 画面の高さいっぱいに表示 */
+    height: 100vh;
 }
 
 .square {
     width: 200px;
     height: 200px;
     margin: 20px;
-    background-color: #FFCCCC; /* 白の背景色 */
+    background-color: #FFCCCC;
     text-align: center;
-    border-radius: 10px; /* 角丸 */
-    transition: transform 0.2s, box-shadow 0.2s; /* アニメーション効果の設定 */
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .square:hover {
-    transform: scale(1.05); /* ホバー時に少し拡大 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* ホバー時に影を追加 */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .square a {
     text-decoration: none;
-    color: #333; /* テキストの色 */
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,125 +140,456 @@ text-align: left; /* テキストを左寄せにする */
     height: 100%;
 }
 
-/* アイコンのスタイル */
 .square i {
     font-size: 36px;
     margin-bottom: 10px;
 }
 
-/* food.create*/
+/* child.create */
 
+.child-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5; /* 背景色を設定 */
-    }
-    
-    /* h3要素に対してスタイルを追加 */
-   h3 {
-    margin-top: 0; /* デフォルトのマージンをリセット */
-    margin-bottom: 20px; /* 下部の余白を追加 */
+.text-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.image-label {
+    position: relative;
+    background-color: #999999;
+    border-radius: 50%;
+    padding: 20px;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
+    left: 200px;
+}
+
+.image-label p {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+.image-label img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: -20px;
+    padding: -20px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.form-control-file {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.alert {
+    margin-bottom: 30px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* child.index */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.btn-primary, .btn-info, .btn-danger, .btn-secondary {
+    border-radius: 5px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* food.create */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.food-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
     font-weight: normal;
-   }
+}
 
- /* コンテナ内のフォームに対してスタイルを追加 */
-  .form-overlay form {
-    margin-top: 20px; /* フォームと上部の余白を追加 */
-   }
+.form-overlay form {
+    margin-top: 20px;
+}
 
-    .container {
-        padding: 20px;
-        max-width: 800px;
-        margin: 50px auto; /* 中央寄せと上部の余白を追加 */
-        background-color: #fff; /* コンテナの背景色を設定 */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスに影を追加 */
-        border-radius: 10px;
-    }
+.image-container {
+    margin-bottom: 20px;
+}
 
-    .image-container {
-        margin-bottom: 20px;
-    }
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 
-    .image-box img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px; /* 画像に角丸を追加 */
-    }
+.form-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
 
-    .form-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.8);
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        border-radius: 10px;
-    }
+form {
+    width: 100%;
+    max-width: 600px;
+}
 
-    form {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-    }
+.form-group {
+    margin-bottom: 20px;
+}
 
-    .form-group {
-        margin-bottom: 15px;
-    }
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
 
-    label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-    }
+.form-check {
+    margin-bottom: 10px;
+}
 
-    select,
-    input,
-    textarea {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+.quantity-option {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: lightblue;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-    .form-check {
-        margin-bottom: 10px;
-    }
+.quantity-option:hover {
+    background-color: #CCCC99;
+}
 
-    .quantity-option {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        background-color: lightblue;
-        margin-right: 5px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-    .quantity-option:hover {
-        background-color: #CCCC99;
-    }
+.button:hover {
+    background-color: #45a049;
+}
 
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-    }
+/* bowel.index */
 
-    button:hover {
-        background-color: #45a049;
-    }
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #343a40;
+}
+
+table {
+    margin-top: 60px;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    text-align: left;
+    width: 20%;
+    padding: 8px;
+}
+
+th {
+    background-color: #CCCC99;
+    color: #333;
+}
+
+.btn {
+    padding: 8px 16px;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* bowel.create */
+
+.bowel-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="name"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    background-color: #45a049;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    color: #4CAF50;
+}
+
+.alert-success {
+    background-color: #e7f3e3;
+    border-color: #5cb85c;
+    color: #4cae4c;
+}
+
+#stool-form {
+    display: block;
+}
+
+/* attend.create */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.attend-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+select {
+    height: 36px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.alert {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* trans.create */
+
+.trans-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}

@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="form-container">
+  <div class="attend-container">
   <a href="{{url('attend/index')}}">戻る</a>
     <h1>出勤記録編集</h1>
     @if(session('message'))

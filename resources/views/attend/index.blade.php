@@ -4,6 +4,7 @@
 
 <div class="container">
     <div class="dashboard">
+    <a href="{{ url('home') }}" class="btn btn-primary">トップ画面へ</a>
        <a href="{{ url('attend/create') }}">出勤登録へ</a>
     </div>
 

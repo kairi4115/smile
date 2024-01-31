@@ -2,11 +2,25 @@
 
 @section('content')
 
-<div class="form-container">
+<div class="container">
     <div class="dashboard">
-        <h2>食事記録</h2>
-        <a href="{{ route('food.create') }}">食事記録へ</a>
+    <h2>食事記録</h2>
+    <a href="{{ url('home') }}" class="btn btn-primary">トップ画面</a><br>
+    <a href="{{ route('food.create') }}">食事記録へ</a>
     </div>
+
+    <form action="{{ route('food.index') }}" method="GET">
+    <label>
+        <input type="checkbox" name="show_day" value="1">
+        昼を表示する
+    </label>
+    <label>
+        <input type="checkbox" name="show_night" value="1">
+        夜を表示する
+    </label>
+    <button type="submit">表示する</button>
+</form>
+
 
     <div class="table-responsive">
         <table class="table table-striped table-lg">
@@ -27,22 +41,19 @@
                 @foreach($records as $record)
                 <tr>
                     <td>{{ $record->record_date }}</td>
-                    <td>{{ $record->child->name }}</td>
+                    <td>{{ optional($record->child)->name }}</td>
                     <td>{{ $record->meal_type }} </td>
                     <td>{{ $record->meal_description }}</td>
                     <td>{{ $record->meal_amount }}
-                    @if(isset($messages[$record->id]))
-                    <div class="alert alert-info" role="alert">{{ $messages[$record->id] }}</div>
-                     @endif
                     </td>
                     <td>
-                        <a href="{{ route('food.edit', ['id' => $record->id]) }}" class="btn btn-edit"><i class="far fa-edit"></i> 編集</a>
+                        <a href="{{ route('food.edit', ['id' => $record->id]) }}" class="btn btn-info"><i class="far fa-edit"></i> 編集</a>
                     </td>
                     <td>
                         <form action="{{ route('food.destroy', ['id' => $record->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $record->id }}"><i class="far fa-trash-alt"></i> 削除</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $record->id }}"><i class="far fa-trash-alt"></i> 削除</button>
                         </form>
                     </td>
                 </tr>
@@ -59,7 +70,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="deleteModalLabel-{{ $record->id }}">削除の確認</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -67,7 +78,7 @@
                 本当に削除しますか？
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
                 <form action="{{ route('food.destroy', ['id' => $record->id]) }}" method="POST">
                     @csrf
                     @method('DELETE')

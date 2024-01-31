@@ -4,7 +4,7 @@
 
 
 <!-- 新しい食事記録を入力するフォーム -->
-<div class="container">
+<div class="food-container">
 <a href="{{ url('/food/index') }}">戻る</a>
     <h3>新しい食事記録を追加</h3>
 
@@ -28,7 +28,7 @@
         </div>
         <div class="form-group">
             <label for="record_date">日付</label>
-            <input type="date" name="record_date" id="record_date" class="form-control" required>
+            <input type="date" name="record_date" id="record_date" class="form-control">
             @error('record_date')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -36,11 +36,11 @@
         <div class="form-group">
             <label>食事の種類</label>
             <div class="form-check">
-                <input type="radio" name="meal_type" id="morning" class="form-check-input" value="昼" required>
+                <input type="radio" name="meal_type" id="morning" class="form-check-input" value="昼" >
                 <label class="form-check-label" for="morning">昼</label>
             </div>
             <div class="form-check">
-                <input type="radio" name="meal_type" id="evening" class="form-check-input" value="夜" required>
+                <input type="radio" name="meal_type" id="evening" class="form-check-input" value="夜" >
                 <label class="form-check-label" for="evening">夜</label>
             </div>
             @error('meal_type')
@@ -49,7 +49,7 @@
         </div>
         <div class="form-group">
             <label for="meal_description">食事内容</label>
-            <textarea name="meal_description" class="form-control @error('meal_description') is-invalid @enderror" id="meal_description" rows="3" required></textarea>
+            <textarea name="meal_description" class="form-control @error('meal_description') is-invalid @enderror" id="meal_description" rows="3" ></textarea>
             @error('meal_description')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -75,48 +75,9 @@
             @enderror
         </div>
 
-        <button type="submit">送信</button>
+        <button type="submit" class="button">送信</button>
     </form>
     </div>
 </div>
-<script>
-// 初期の選択された食事の分量
-let selectedQuantity = 0;
 
-//選択された食事の分量を更新する関数
-function selectQuantity(quantity) {
-    selectedQuantity = quantity;
-    updateQuantityStyle(selectedQuantity);
-}
-
-// 選択された分量に応じてスタイルを変更する
-function updateQuantityStyle(selectedQuantity) {
-    const quantityOptions = document.querySelectorAll('.quantity-option');
-
-    quantityOptions.forEach((option, index) => {
-        if (index === selectedQuantity - 1) {
-            option.style.backgroundColor = '#cccc99';
-        }else
-        option.style.backgroundColor = 'lightblue'
-    });
-
-    // 選択された食事の分量をフォームに設定
-    document.getElementById('selected_meal_amount').value = selectedQuantity + '/4';
-
-}
-// ページ読み込み時に初期スタイルを設定
-window.onload = () => {
-    selectQuantity(1);
-} 
-
-// ボックスをクリックしたときに更新
-const quantityOptions = document.querySelectorAll('.quantity-option');
-
-quantityOptions.forEach((option,index) => {
-    option.addEventListener('click', () => { 
-     selectQuantity(index + 1);
-    });
-    });
-
-</script>
 @endsection

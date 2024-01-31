@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="form">
+<div class="contaner">
     <div class="form">
         <a href="{{ url('absence/create') }}">欠席報告へ</a>
     </div>

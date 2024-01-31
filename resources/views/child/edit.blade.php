@@ -2,8 +2,8 @@
 
 @section('content')
 
-</style>
-<div class="container mt-3">
+
+<div class="child-container ">
     <a href="{{ url('/child') }}">戻る</a>
     <div class="border rounded p-3" style="max-width: 720px; margin: 0 auto; padding: 20px;">
         <h2 class="text-center">編集フォーム</h2>
@@ -24,14 +24,23 @@
 
         <form action="{{ route('child.update', ['id' => $child->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
+
+            <div class="form-group">
+               <label for="image" class="image-label">
+                <p class="text-container">画像アップロード</p>
+                <img id="label-image-preview" class="label-image-preview">
+               </label>
+               <input type="file" name="image" id="image" class="form-control-file" onchange="previewImage(this)">
+            </div>
+
             <div class="form-group">
                 <label for="name" class="font-weight-bold">名前</label>
-                <input type="text" name="name" id="name" required class="form-control">
+                <input type="text" name="name" id="name" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="birthdate" class="font-weight-bold">生年月日</label>
-                <input type="date" name="birthdate" id="birthdate" required class="form-control">
+                <input type="date" name="birthdate" id="birthdate" class="form-control">
             </div>
 
             <div class="form-group">
@@ -45,13 +54,8 @@
             </div>
 
             <div class="form-group">
-                <label for="profile_picture" class="font-weight-bold">画像アップロード</label>
-                <input type="file" name="profile_picture" id="profile_picture" class="form-control-file">
-            </div>
-
-            <div class="form-group">
                 <label for="parentname" class="font-weight-bold">保護者名</label>
-                <input type="text" name="parentname" id="parentname" required class="form-control">
+                <input type="text" name="parentname" id="parentname" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary btn-block my-3">送信</button>

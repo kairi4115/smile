@@ -1,58 +1,59 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Child;
 
+use App\Models\Child;
 use Illuminate\Http\Request;
 
 class ChildController extends Controller
 {
-    //
-
     public function index()
     {
-        $childs = Child::latest()->paginate(5);
-        return view('Child.index', ['childs' => $childs]);
+        $childs = Child::all();
+        return view('child.index', ['childs' => $childs]);
     }
 
     public function create()
     {
-       return view('Child.create');
+        return view('child.create');
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate(
-           ['name' => 'required|string|max:255',
-            'birthdate' => 'required|date',
-            'address' => 'nullable|string|max:255',
-            'phone_number' => 'nullable|string|max:20',
-             'image' =>'required|mimes:jpeg,png,jpg,gif,svg',
-             'parentname' => 'required|string|max:255'],
-            
-           ['name.required' => '名前を入力してください',
+        $validationMessages = [
+            'name.required' => '名前を入力してください',
             'birthdate.required' => '生年月日を入力してください',
             'address.required' => '住所を入力してください',
             'phone_number.required' => '電話番号を入力してください',
-            'image' => '画像を選択してください',
-            'parentname' => '保護者名を記入してください'],
-      
-        );
+            'image.required' => '画像を選択してください',
+            'parentname.required' => '保護者名を記入してください',
+        ];
+
+        request()->validate([
+            'name' => 'required|string|max:255',
+            'birthdate' => 'required|date_format:Y-m-d',
+            'address' => 'nullable|string|max:255',
+            'phone_number' => 'nullable|string|max:20',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'parentname' => 'required|string|max:255',
+        ],$validationMessages);
+        
 
         $image = $request->file('image');
-        $name = time().'.'.$image->getClientOriginalExtension();
+        $name = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/images');
-        $image->move($destinationPath,$name);
+        $image->move($destinationPath, $name);
 
-       child::create([
-        'name' => request('name'),
-        'birthdate' =>request('birthdate'),
-        'address' =>request('address'),
-        'phone_number' =>request('phone_number'),
-        'image' =>$name,
-        'parentname' =>request('parentname'),
-       ]);
-
+        Child::create([
+            'name' => $request->input('name'),
+            'birthdate' => $request->input('birthdate'),
+            'address' => $request->input('address'),
+            'phone_number' => $request->input('phone_number'),
+            'image' => $name,
+            'parentname' => $request->input('parentname'),
+        ]);
+       
+       
         return redirect()->back()->with('message', '児童情報が登録されました');
     }
 
@@ -62,7 +63,7 @@ class ChildController extends Controller
         return view('child.edit', compact('child'));
     }
 
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
@@ -70,14 +71,14 @@ class ChildController extends Controller
             'address' => 'nullable|string|max:255',
             'phone_number' => 'nullable|string|max:20',
             'parentname' => 'required|string|max:255',
-
+        ], [
             'name.required' => '名前を入力してください',
             'birthdate.required' => '生年月日を入力してください',
             'address.required' => '住所を入力してください',
             'phone_number.required' => '電話番号を入力してください',
             'parentname.required' => '保護者名を記入してください',
         ]);
-        
+
         $child = Child::find($id);
         $child->update($validatedData);
 
@@ -99,7 +100,7 @@ class ChildController extends Controller
 
         // 取得した行のIDを再連番する
         $newId = $id;
-        foreach($rowsToUpdate as $row) {
+        foreach ($rowsToUpdate as $row) {
             $row->update(['id' => $newId]);
             $newId++;
         }
@@ -107,5 +108,3 @@ class ChildController extends Controller
         return redirect()->route('child.index')->with('message', '児童情報が削除されました');
     }
 }
-
-

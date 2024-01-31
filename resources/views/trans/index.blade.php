@@ -5,6 +5,7 @@
 <div class="container">
     <div class="dashboard">
         <h1 class="my-4">送迎表</h1>
+        <a href="{{ url('home') }}" class="btn btn-primary">トップ画面へ</a>
         <a href="{{ url('trans/create') }}">送迎作成</a>
     </div>
 

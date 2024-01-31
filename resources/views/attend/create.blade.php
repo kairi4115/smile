@@ -4,9 +4,9 @@
 
 
 
-  <div class="form-container">
+  <div class="attend-container">
     <a href="{{url('attend/index') }}">戻る</a>
-    <h1>出勤記録作成</h1>
+    <h1>登園記録作成</h1>
     @if(session('message'))
     <div class="alert alert-success">
     {{ session('message')}}
@@ -29,18 +29,18 @@
             <input type="date" name="date" id="date" class="form-control" required> 
         </div>
         <div class="form-group">
-            <label for="present">出席状況</label>
+            <label for="present">登園状況</label>
             <select name="present" id="present" class="form-control" required>
                 <option value="1">出席</option>
                 <option value="0">欠席</option>
             </select>
         </div>
         <div class="form-group">
-            <lavel for="arrival_time">出勤時間</lavel>
+            <lavel for="arrival_time">登園時間</lavel>
             <input type="time" name="arrival_time" id="arrival_time" class="form-control" required>
         </div>
         <div class="form-group">
-            <lavel for="departure_time">退勤時刻</lavel>
+            <lavel for="departure_time">退園時刻</lavel>
             <input type="time" name="departure_time" id="departure_time" class="form-control" required>
         </div>
         <div class="form-group">

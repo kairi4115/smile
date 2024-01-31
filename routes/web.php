@@ -1,11 +1,14 @@
-<?php
+<?php 
 
 use App\Http\Controllers\AbsenceReportController;
 use App\Http\Controllers\BowelMovementController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ChildController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FoodChildController;
 use App\Http\Controllers\AttendanceRecordController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\parentchildcontroller;
 use App\Models\BowelMovement;
 use App\Models\FoodCildRecord;
@@ -34,12 +37,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+ Route::get('/dashboard', function () {
+    return view('dashboard');
+ })->middleware(['auth', 'verified'])->name('dashboard');
+
+ Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php'; 
+
+
+
 Route::get('/', [webController::class, 'index']);
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
+Route::get('/home',[HomeController::class, 'index'])->name('top.index');
 
 Auth::routes();
 Route::get('child', [ChildController::class, 'index'])->name('child.index');
@@ -94,8 +108,3 @@ Route::post('absence/store', [AbsenceReportController::class, 'store'])->name('a
 Route::get('absence/edit/{id}', [AbsenceReportController::class, 'edit'])->name('absence.edit');
 Route::post('absence/update/{id}', [AbsenceReportController::class, 'update'])->name('absence.update');
 Route::get('absence/destroy/{id}', [AbsenceReportController::class, 'destroy'])->name('absence.destroy');
-
-
-Route::get('sleep/create', [SleepController::class, 'create'])->name('sleep.create');
-Route::post('sleep/store', [SleepController::class, 'store'])->name('sleep.store');
-Route::get('sleep/edit/{id}',[SleepController::class, 'edit'])->name('sleep.edit');

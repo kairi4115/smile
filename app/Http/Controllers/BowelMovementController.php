@@ -20,12 +20,12 @@ class BowelMovementController extends Controller
   
     public function store(Request $request)
     {
-      // バリデーションルールの設定
+      // バリデートを設定する
       $rules =[
         'name' => 'required|string',
         'date' => 'required|date',
         'time' => 'required|date_format:H:i',
-        //他のフィールドに対するバリデーションルールを追加する
+       
       ];
 
       //バリデーションを実行
@@ -60,7 +60,7 @@ class BowelMovementController extends Controller
      $bowel->save();
 
      // 成功メッセージをセットしてリダイレクト
-      return redirect()->route('bowel.index')->with('message', '排泄データが保存されました。');
+      return redirect()->route('bowel.create')->with('message', '排泄データが保存されました。');
 
     }
 

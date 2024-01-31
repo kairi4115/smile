@@ -5,41 +5,48 @@ use App\Models\FoodCildRecord;
 use App\Http\Controllers\ChildController;
 use App\Models\Child;
 
+
 use Illuminate\Http\Request;
 
 class FoodChildController extends Controller
 {
   
-    public function index()
+    public function index(Request $request)
     {
-      $children= Child::all();
-       $records = FoodCildRecord::all();
-      
-       // メッセージを格納するための空の配列を初期化
-       $messages = [];
+      $children = Child::all();
 
-       // 食事量の計算を行い、増減の判断を行う
-      foreach($records as $record) { 
+      // 選択された値の設定
+      $ShowDay = $request->has('show_day');
+      $ShowNight = $request->has('show_night');
 
-      //2/4以下であれば夜の食事量を増やす
-      if($record->meal_amount <=  2/4) {
-        $message ='おやつ多め';
-      }else{ 
-      //2/4以上
-       $message = 'おやつ少なめ';
-    }
-     // メッセージを配列に追加
-     $messages[$record->id]= $message;
-      
+      //選択された値のフィルタリング
+      $foods = FoodCildRecord::query();
 
-  }
-        return view('food.index',compact('records', 'children', 'messages', 'message'));
-    }
+       if($ShowDay && $ShowNight) {
 
+       }elseif($ShowDay) {
+
+        $foods->where('meal_type', '昼');
+
+       }elseif($ShowNight) {
+
+        $foods->where('meal_type', '夜');
+
+       }else{
+
+       }
+
+      // 選択されたフィルタリングを記録に設定
+      $records = $foods->get();
+
+      // 昼と夜のメッセージをビューに渡す
+      return view('food.index', compact('records', 'children',));
+
+}
    public function create()
    {
+
     $children = Child::all();
-   
     return view('food.create', compact('children'));
 
    }
@@ -53,7 +60,7 @@ class FoodChildController extends Controller
         ['child_id' => 'required',
          'record_date' => 'required',
          'meal_type' => 'required|in:昼,夜',
-        'meal_description' => 'required',
+         'meal_description' => 'required',
          'meal_amount' =>     'required'],
 
         ['child_id.required' => '児童名を選択してください',
@@ -79,6 +86,7 @@ class FoodChildController extends Controller
         'meal_amount' => $mealAmount,
     ]);
 
+
     return redirect()->back()->with('message', '児童情報が登録されました');
    }
 
@@ -97,8 +105,8 @@ class FoodChildController extends Controller
        request()->validate([
          
         'child_id' => 'required',
-         'record_date' => 'required',
-         'meal_type' => 'required|in:昼,夜',
+        'record_date' => 'required',
+        'meal_type' => 'required|in:昼,夜',
         'meal_description' => 'required',
         'meal_amount' => 'required',
 
