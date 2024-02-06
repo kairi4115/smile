@@ -15,7 +15,7 @@ class Child extends Model
 
     public function foodchild_records()
     {
-        return $this->hasMany(FoodchildRecord::class, 'child_id');
+        return $this->hasMany(FoodChildRecord::class, 'child_id');
     }
 }
 
