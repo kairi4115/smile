@@ -15,6 +15,7 @@
         <!--@vite(['resources/css/app.css', 'resources/js/app.js']) -->
         <script src="{{ asset('/js/app.js') }}"></script>
         <script src="{{ asset('/js/bowel.js') }}"></script>
+        <script src="{{ asset('/js/web.js') }}"></script>
         <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <script src="https://kit.fontawesome.com/2e4b86039b.js" crossorigin="anonymous"></script>
 

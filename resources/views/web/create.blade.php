@@ -24,6 +24,11 @@
         　　　　ITの力でお手伝いします！
             </h2>
         </div>
+        <div class="image-midle-container">
+            <div class="image-midle-box">
+                <img src="{{ asset('imges/1234.png') }}" alt="Child Image">
+            </div>
+        </div>
     </div>
 </div>
 @endsection
