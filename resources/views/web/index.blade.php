@@ -1,11 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+ <style>
+  .slick-prev,.slick-next {
+    z-index: 1;
+  }
+  .slick-next {
+    right: 15px;
+    color:#333;
+  }
+
+ .slick-prev {
+    left: 15px;
+    color:#333;
+  }
+
+ .slider img:hover {
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+  }
+
+ </style>
 
 <div class="text-center">
-
-
-
     <header>
         <nav>
             <ul>
@@ -15,9 +35,6 @@
             </ul>
         </nav>
     </header>
-
-    
-
 
     <div class="image-container">
 
@@ -35,32 +52,32 @@
             </h2>
         </div>
      
-        <div class="image-slider">
-            <div class="image-slide" style="display: block;">
-            <img src="{{ asset('images/1.png') }}" class="slide-image"  onclick="nextSlide()">
+        <div class= "slider">
+         <div> 
+            <img src="{{ asset('images/1.png') }}"style="width: 470px;" onclick="nextSlide()">
+         </div>
+
+         <div>
+            <img src="{{ asset('images/2.png') }}"style="width: 470px;" onclick="nextSlide()">
         </div>
 
-        <div class="image-slide" style="display: none;">
-           <img src="{{ asset('images/2.png') }}" class="slide-image"  onclick="nextSlide()">
+        <div>
+           <img src="{{ asset('images/3.png') }}"style="width: 470px;" onclick="nextSlide()">
         </div>
 
-        <div class="image-slide" style="display: none;">
-           <img src="{{ asset('images/3.png') }}" class="slide-image" onclick="nextSlide()">
+        <div>
+           <img src="{{ asset('images/4.png') }}"style="width: 470px;" onclick="nextSlide()">
         </div>
 
-        <div class="image-slide" style="display: none;">
-           <img src="{{ asset('images/4.png') }}" class="slide-image" onclick="nextSlide()">
+        <div>
+           <img src="{{ asset('images/5.png') }}"style="width: 470px;" onclick="nextSlide()">
         </div>
 
-        <div class="image-slide" style="display: none;">
-           <img src="{{ asset('images/5.png') }}" class="slide-image" onclick="nextSlide()">
-        </div>
-
-        <div class="image-point" style="position: relative;">
+        <!--<div class="image-point" style="position: relative;">
             <img src="{{ asset('images/6.png') }}" class="image-point-right" onclick="nextSlide()" style="width: 50px; position:absolute; left: 20px; top: 50%;">
             <img src="{{ asset('images/7.png') }}" class="image-point-left" onclick="nextSlide()" style="width: 50px; position:absolute; right: 740px; top: 50%;">
         </div>
-
+           -->
         </div>
 
         <div class="image-decretion">
@@ -74,8 +91,24 @@
      
         </div>
         </div>
-    </div>
-</div>
+        </div>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
+
+  <script> 
+  
+ function nextSlide() {
+    $('.slider').slick('slickNext');
+ }
+
+   $('.slider').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 3
+   });
+
+  </script>
 
 @endsection
 

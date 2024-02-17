@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AttendanceRecord;
+use App\Models\BowelMovement;
 use App\Models\Child;
+use App\Models\FoodCildRecord;
 use Illuminate\Http\Request;
 
 class ChildController extends Controller
@@ -106,5 +109,16 @@ class ChildController extends Controller
         }
 
         return redirect()->route('child.index')->with('message', '児童情報が削除されました');
+    }
+
+    public function GetChildID($id) {
+        $child = Child::where($id);
+        $FoodChildrecord = FoodCildRecord::where('child_id', $id)->get();
+        $bowelMovement = BowelMovement::where('child_id', $id)->get();
+        $attendence = AttendanceRecord::where('child_id', $id)->get();
+        
+       
+
+
     }
 }

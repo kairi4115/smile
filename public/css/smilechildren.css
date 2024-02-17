@@ -55,34 +55,24 @@ nav ul li a {
     font-size: 24px; 
 }
 
-
-.image-slider {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 10px; 
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); 
+.slick-prev,.slick-next {
+    z-index: 1;
+}
+.slick-next {
+    right: 15px;
+    color:#333;
 }
 
-.image-slide {
-    flex: 0 0 auto;
-    transition: transform 0.3s ease;
-    transform: translateX(0); 
+.slick-prev {
+    left: 15px;
+    color:#333;
 }
 
-.slide-image {
-    max-width: 900px;
-    max-height: 200px; 
-    cursor: pointer;
-    object-fit: cover;
-    border-radius: 10px; 
-}
-
-.slide-image:hover {
+.slider img:hover {
     opacity: 0.8;
+    transition: background-color 0.3s ease; 
 }
+
 
 .slide-image-decretion {
     right: 10px;
