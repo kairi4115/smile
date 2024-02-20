@@ -33,7 +33,10 @@
         <tr>
         <th scope="row">{{ $child->id }}</th>
         <td style="max-width: 100px;">
+        <a href="{{ route('child.id', $child->id)}}">
         <img src="{{ asset('images/' . $child->image) }}" class="img-fluid image" alt="{{ $child->image }}の画像" >
+        </a>
+
         </td>
         <td>{{ $child->name }}</td>
         <td>{{ $child->birthdate }}</td>

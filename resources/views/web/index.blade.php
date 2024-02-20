@@ -23,6 +23,21 @@
     transition: opacity 0.5s ease;
   }
 
+  .app-title {
+   position: absolute;
+    top: 40px;
+    left: 200px;
+    width: 100%;
+    font-size: 24px; 
+}
+
+.image-decretion {
+        text-align: right; /* 画像を右揃えにするために親要素を右寄せに */
+    }
+    
+    .slide-image-decretion {
+        margin-left: 30px; /* 画像を右に移動 */
+    }
  </style>
 
 <div class="text-center">
@@ -35,6 +50,7 @@
             </ul>
         </nav>
     </header>
+
 
     <div class="image-container">
 
@@ -52,7 +68,7 @@
             </h2>
         </div>
      
-        <div class= "slider">
+        <div class= "slider" style="margin-top: 50px;">
          <div> 
             <img src="{{ asset('images/1.png') }}"style="width: 470px;" onclick="nextSlide()">
          </div>

@@ -17,5 +17,10 @@ class Child extends Model
     {
         return $this->hasMany(FoodChildRecord::class, 'child_id');
     }
+
+    public function bowelMovement()
+    {
+        return $this->hasMany(BowelMovement::class, 'child_id');
+    }
 }
 

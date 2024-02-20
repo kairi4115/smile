@@ -50,8 +50,9 @@ nav ul li a {
 }
 
 .app-title {
-    margin-bottom: 40px; 
-    margin-top: 50px;
+    margin-bottom: 10px; 
+    margin-top: 10px;
+    left: 30px;
     font-size: 24px; 
 }
 
@@ -71,18 +72,6 @@ nav ul li a {
 .slider img:hover {
     opacity: 0.8;
     transition: background-color 0.3s ease; 
-}
-
-
-.slide-image-decretion {
-    right: 10px;
-    width: 70%;
-    height: auto;
-}
-
-.slide-image-decretion1 {
-    width: 70%;
-    height: auto;
 }
 
 

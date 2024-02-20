@@ -11,6 +11,11 @@ class BowelMovement extends Model
 
     protected $fillable = ['name','date', 'time', 'type', 'stool_type','notes'];
 
+
+    public function child()
+    {
+        return $this->belongsTo(Child::class, 'child_id');
+    }
    
     
 }

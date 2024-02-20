@@ -6,6 +6,7 @@ use App\Models\AttendanceRecord;
 use App\Models\BowelMovement;
 use App\Models\Child;
 use App\Models\FoodCildRecord;
+use App\Models\TransportRecord;
 use Illuminate\Http\Request;
 
 class ChildController extends Controller
@@ -112,13 +113,13 @@ class ChildController extends Controller
     }
 
     public function GetChildID($id) {
-        $child = Child::where($id);
-        $FoodChildrecord = FoodCildRecord::where('child_id', $id)->get();
-        $bowelMovement = BowelMovement::where('child_id', $id)->get();
-        $attendence = AttendanceRecord::where('child_id', $id)->get();
-        
-       
+      $childs = Child::where('name', $id)->whereNotNull(['image', 'birthdate', 'address', 'phone_number', 'parentname'])->get();
+      $FoodChildRecords = FoodCildRecord::where('child_id', $id)->whereNotNull(['record_date', 'meal_type', 'meal_description', 'meal_amount'])->get();
+      $bowelMovements = BowelMovement::whereNotNull(['name', 'date', 'time', 'type', 'stool_type', 'notes'])->get();
+      $AttendanceRecords = AttendanceRecord::whereNotNull(['child_id','date', 'present', 'arrival_time', 'departure_time', 'notes'])->get();
+      $transportRecords = TransportRecord::whereNotNull(['child_name','transport_date', 'departure_location', 'destination', 'passenger_name'])->get();
 
-
+      return view('child.id', compact('childs', 'FoodChildRecords', 'bowelMovements', 'AttendanceRecords', 'transportRecords'));
     }
 }
+

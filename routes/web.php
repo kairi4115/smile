@@ -21,6 +21,7 @@ use App\Http\Controllers\parentregistercontroller;
 use App\Http\Controllers\parenttopcontroller;
 use App\Http\Controllers\ParentattendController;
 use App\Http\Controllers\SleepController;
+use App\Models\Child;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,7 @@ Route::post('child.store', [ChildController::class, 'store'])->name('child.store
 Route::get('child/edit/{id}', [ChildController::class, 'edit'])->name('child.edit');
 Route::post('child/update/{id}', [ChildController::class, 'update'])->name('child.update');
 Route::delete('child/destroy/{id}', [ChildController::class, 'destroy'])->name('child.destroy');
+Route::get('child/{id}', [ChildController::class, 'GetChildID'])->name('child.id');
 
 Route::get('food/index',[FoodChildController::class,'index'])->name('food.index');
 Route::get('food/create/', [FoodChildController::class, 'create'])->name('food.create');

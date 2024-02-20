@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -52,10 +51,11 @@ class BowelMovementController extends Controller
      $bowel->notes = $notes;
 
      // タイプ情報をカンマ区切りの文字列に変換
-     $typeString = implode(',',$type);
+     $typeString = implode(',' , array_slice($type, 0, 255));
      $bowel->type = $typeString;
 
-     $bowel->stool_type = $stoolType;
+    
+     $bowel->stool_type = substr($stoolType, 0, 255);
 
      $bowel->save();
 
