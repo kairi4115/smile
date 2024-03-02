@@ -16,6 +16,6 @@ class BowelMovement extends Model
     {
         return $this->belongsTo(Child::class, 'child_id');
     }
-   
+
     
 }

@@ -112,14 +112,79 @@ class ChildController extends Controller
         return redirect()->route('child.index')->with('message', '児童情報が削除されました');
     }
 
-    public function GetChildID($id) {
-      $childs = Child::where('name', $id)->whereNotNull(['image', 'birthdate', 'address', 'phone_number', 'parentname'])->get();
-      $FoodChildRecords = FoodCildRecord::where('child_id', $id)->whereNotNull(['record_date', 'meal_type', 'meal_description', 'meal_amount'])->get();
-      $bowelMovements = BowelMovement::whereNotNull(['name', 'date', 'time', 'type', 'stool_type', 'notes'])->get();
-      $AttendanceRecords = AttendanceRecord::whereNotNull(['child_id','date', 'present', 'arrival_time', 'departure_time', 'notes'])->get();
-      $transportRecords = TransportRecord::whereNotNull(['child_name','transport_date', 'departure_location', 'destination', 'passenger_name'])->get();
+    public function GetChildID($id,) {
 
-      return view('child.id', compact('childs', 'FoodChildRecords', 'bowelMovements', 'AttendanceRecords', 'transportRecords'));
+        $message = null;
+        $child = Child::find($id);
+       
+       if($child) {
+         
+                            
+        $FoodChildRecords = $child->foodchild_records;
+        $bowelMovements = $child->bowel_Movements;
+        $AttendanceRecords = $child->attendance_records;
+        $transportRecords = $child->transport_records;
+
+      } else {
+
+        $message = ['児童に値するものがありません'];
+
+      }
+
+      return view('child.id', compact( 'FoodChildRecords', 'bowelMovements', 'AttendanceRecords', 'transportRecords', 'message'));
+    }
+
+    public function ChildResearch() {
+        return view('child.research');
+    }
+
+    public function ChildResults( Request $request) {
+        
+        
+        // フォームから送られてきた値（request)を変数に代入する
+        $name = $request->input('name');
+        $date = $request->input('date');
+
+        
+             $researchName = $name ? Child::where('name', $name)->get() : ['messsage' => '該当するものがありません'];
+             $FoodRecords = $date ? FoodCildRecord::where('record_date', $date)->whereNotNull(['child_id', 'meal_type', 'meal_description', 'meal_amount'])->get() : null;
+             $BowelMovements =  $date ? BowelMovement::where('date', $date)->whereNotNull(['name', 'time', 'type', 'stool_type', 'notes'])->get() : null;
+             $AttendanceRecords = $date ?  AttendanceRecord::where('date', $date)->whereNotNull(['child_id', 'present', 'arrival_time', 'departure_time', 'notes'])->get() : null;
+             $transportRecords = $date ? TransportRecord::where('transport_date', $date)->whereNotNull(['child_name', 'departure_location', 'destination', 'passenger_name'])->get() : null;
+           
+            $message= [
+                $foodRecords = $FoodRecords ? $FoodRecords : ['message' => '日付に該当するものがありませんと'],
+                $bowelMovements = $BowelMovements ? $BowelMovements : ['message' => '日付に該当するものがありませんと'],
+                $attendanceRecords = $AttendanceRecords ? $AttendanceRecords : ['message' => '日付に該当するものがありませんと'],
+                $transportRecords = $transportRecords ? $transportRecords :  ['message' => '日付に該当するものがありませんと'],
+                
+            ];
+
+         return view('child.results', [
+            'foodRecords' => $FoodRecords,
+            'bowelMovements' => $BowelMovements,
+            'attendanceRecords' => $AttendanceRecords,
+            'transportRecords' => $transportRecords,
+            'researchName'  => $researchName,
+            'message' => $message,
+           
+        ]);
     }
 }
+        //$date = $request->input('date');
+       // $meal_type = $request->input('meal_type');
+       // $bowelMovements_type = $request->input('type');
+       // $bowelMovements_stool_soft = $request->input('stool_type_soft');
+        //$bowelMovements_stool_hard = $request->input('stool_type_hard');
+        //$present = $request->input('present');
+       // $arrival_time = $request->input('arrival_time');
+        //$departure_time = $request->input('departure_time');
+        //$departure_location = $request->input('departure_location');
+       //$destination = $request->input('destination');
+        //$passenger_name = $request->input('passenger_name');
+
+    
+
+    
+
 

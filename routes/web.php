@@ -64,6 +64,8 @@ Route::get('child/edit/{id}', [ChildController::class, 'edit'])->name('child.edi
 Route::post('child/update/{id}', [ChildController::class, 'update'])->name('child.update');
 Route::delete('child/destroy/{id}', [ChildController::class, 'destroy'])->name('child.destroy');
 Route::get('child/{id}', [ChildController::class, 'GetChildID'])->name('child.id');
+Route::get('child.research', [ChildController::class, 'ChildResearch'])->name('child.research');
+Route::get('child.results', [ChildController::class, 'ChildResults'])->name('child.results');
 
 Route::get('food/index',[FoodChildController::class,'index'])->name('food.index');
 Route::get('food/create/', [FoodChildController::class, 'create'])->name('food.create');

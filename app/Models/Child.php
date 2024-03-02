@@ -15,12 +15,23 @@ class Child extends Model
 
     public function foodchild_records()
     {
-        return $this->hasMany(FoodChildRecord::class, 'child_id');
+        return $this->hasMany(FoodCildRecord::class, 'child_id', 'id');
     }
 
-    public function bowelMovement()
+    public function bowel_movements()
     {
-        return $this->hasMany(BowelMovement::class, 'child_id');
+        return $this->hasMany(BowelMovement::class, 'id');
     }
+
+    public function attendance_records()
+    {
+        return $this->hasMany(AttendanceRecord::class, 'id');
+    }
+
+    public function TransportRecord()
+    {
+        return $this->hasMany(TransportRecord::class, 'child_id', 'id');
+    }
+
 }
 

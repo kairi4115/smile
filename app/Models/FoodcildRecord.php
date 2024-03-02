@@ -22,6 +22,21 @@ class FoodCildRecord extends Model
     // FoodchildRecordモデルからChildモデルへの逆向きのリレーションシップ
     public function child()
     {
-        return $this->belongsTo(Child::class, 'child_id');
+        return $this->belongsTo(Child::class, 'child_id', 'id');
+    }
+
+    public function BowelMovement() 
+    {
+         return $this->belongsTo(BowelMovement::class, 'child_id', 'id');
+    }
+
+    public function AttendanceRecord()
+    {
+        return $this->belongsTo(AttendanceRecord::class, 'child_id', 'id');
+    }
+
+    public function TransportRecord()
+    {
+        return $this->belongsTo(TransportRecord::class, 'child_id', 'id');
     }
 }

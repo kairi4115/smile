@@ -23,21 +23,19 @@
     transition: opacity 0.5s ease;
   }
 
-  .app-title {
-   position: absolute;
-    top: 40px;
-    left: 200px;
-    width: 100%;
-    font-size: 24px; 
-}
-
+  
 .image-decretion {
         text-align: right; /* 画像を右揃えにするために親要素を右寄せに */
     }
     
-    .slide-image-decretion {
+.slide-image-decretion {
         margin-left: 30px; /* 画像を右に移動 */
     }
+
+.slide-image-decretion1 {
+    margin-right: 120px;
+}
+
  </style>
 
 <div class="text-center">
@@ -62,32 +60,30 @@
             <a href="{{ route('register') }}" class="btn btn-primary">新規登録</a>
             <a href="{{ route('login') }}" class="btn btn-secondary">ログイン</a>
         </div>
-        <div class="app-title">
-        <h2>保育士さんの業務効率化を目指して<br>
-        　　　　ITの力でお手伝いします！
-            </h2>
-        </div>
+        
      
-        <div class= "slider" style="margin-top: 50px;">
-         <div> 
-            <img src="{{ asset('images/1.png') }}"style="width: 470px;" onclick="nextSlide()">
+        <div class= "slider" style="margin-top: 50px; text-align:center;">
+         <div>                                        
+            <img src="{{ asset('images/1.png') }}"style="width: 600px;" onclick="nextSlide()">
          </div>
 
          <div>
-            <img src="{{ asset('images/2.png') }}"style="width: 470px;" onclick="nextSlide()">
+            <img src="{{ asset('images/2.png') }}"style="width: 600px;" onclick="nextSlide()">
         </div>
 
         <div>
-           <img src="{{ asset('images/3.png') }}"style="width: 470px;" onclick="nextSlide()">
+           <img src="{{ asset('images/3.png') }}"style="width: 600px;" onclick="nextSlide()">
         </div>
 
         <div>
-           <img src="{{ asset('images/4.png') }}"style="width: 470px;" onclick="nextSlide()">
+           <img src="{{ asset('images/4.png') }}"style="width: 600px;" onclick="nextSlide()">
         </div>
 
         <div>
-           <img src="{{ asset('images/5.png') }}"style="width: 470px;" onclick="nextSlide()">
+           <img src="{{ asset('images/5.png') }}"style="width: 600px;" onclick="nextSlide()">
         </div>
+
+        
 
         <!--<div class="image-point" style="position: relative;">
             <img src="{{ asset('images/6.png') }}" class="image-point-right" onclick="nextSlide()" style="width: 50px; position:absolute; left: 20px; top: 50%;">
@@ -113,17 +109,18 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
 
   <script> 
-  
- function nextSlide() {
-    $('.slider').slick('slickNext');
- }
-
-   $('.slider').slick({
+function nextSlide() {
+  $('.slider').Slick('SlickNext')
+}
+ $('.slider').slick({
+  dots: true,
   infinite: true,
-  slidesToShow: 3,
-  slidesToScroll: 3
-   });
-
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  centerMode: true,
+  centerPadding: '400px'
+});
   </script>
 
 @endsection
