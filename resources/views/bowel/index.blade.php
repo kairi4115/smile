@@ -2,12 +2,15 @@
 
 @section('content')
 
+<div class="margin-bottom">
 <h1>排泄記録一覧</h1>
+</div>
+
 <a href="{{ url('home') }}" class="btn btn-primary">トップ画面へ</a>
 <a href="{{ url('bowel/create') }}" class="btn btn-primary">新しい記録を作成</a>
 @if(session('message'))
 <div class="alert alert-success">
-    {{ session('message') }} <!-- スペルミスを修正 -->
+    {{ session('message') }} 
 </div>
 @endif
 
@@ -16,7 +19,7 @@
         <tr>
             <th>名前</th>
             <th>日付</th>
-            <th>時間</th> <!-- 大文字に修正 -->
+            <th>時間</th> 
             <th>便の形態</th>
             <th>便の形態</th>
             <th>注意事項</th>
@@ -29,11 +32,11 @@
        @foreach($bowels as $bowel)
        <tr>
          <td>{{ $bowel->name }}</td>
-         <td>{{ $bowel->date }}</td> <!-- フィールド名を正確に指定 -->
-         <td>{{ $bowel->time }}</td> <!-- フィールド名を正確に指定 -->
-         <td>{{ $bowel->type }}</td> <!-- フィールド名を正確に指定 -->
-         <td>{{ $bowel->stool_type }}</td> <!-- フィールド名を正確に指定 -->
-         <td>{{ $bowel->notes }}</td> <!-- フィールド名を正確に指定 -->
+         <td>{{ $bowel->date }}</td> 
+         <td>{{ $bowel->time }}</td> 
+         <td>{{ $bowel->type }}</td>
+         <td>{{ $bowel->stool_type }}</td> 
+         <td>{{ $bowel->notes }}</td> 
        <td>
          <a href="{{ route('bowel.edit', ['id' => $bowel->id]) }}"  class="btn btn-info"><i class="far fa-edit"></i> 編集</a> 
        </td>

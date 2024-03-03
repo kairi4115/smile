@@ -32,10 +32,13 @@
             @foreach($childs as $child)
         <tr>
         <th scope="row">{{ $child->id }}</th>
-        <td style="max-width: 100px;">
+       <!-- <td style="max-width: 50px;"> -->
+        <td class="image">
         <a href="{{ route('child.id', $child->id)}}">
-        <img src="{{ asset('images/' . $child->image) }}" class="img-fluid image" alt="{{ $child->image }}の画像" >
+        <img src="{{ asset('images/' . $child->image) }}" class="img-fluid image small" alt="{{ $child->image }}の画像" >
+        </td>
         </a>
+        </div>
 
         </td>
         <td>{{ $child->name }}</td>
